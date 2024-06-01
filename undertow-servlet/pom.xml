@@ -30,9 +30,10 @@
     <description>Undertow Servlet Example for OpenShift Java S2I</description>
 
     <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-
+        <compiler-plugin.version>3.8.1</compiler-plugin.version>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <maven.compiler.parameters>true</maven.compiler.parameters>
         <version.undertow>2.2.19.Final</version.undertow>
         <version.jboss.logmanager>2.0.3.Final-redhat-1</version.jboss.logmanager>
     </properties>
@@ -68,6 +69,10 @@
             <build>
                 <finalName>undertow-servlet</finalName>
                 <plugins>
+                    <plugin>
+                        <artifactId>maven-compiler-plugin</artifactId>
+                        <version>${compiler-plugin.version}</version>
+                    </plugin>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-shade-plugin</artifactId>
